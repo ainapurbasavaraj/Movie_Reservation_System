@@ -1,0 +1,91 @@
+***************************** OM NAMAH SHIVAYA **********************
+
+MOVIE TICKET RESERVATION
+
+REQUIREMENTS
+
+Searching
+
+Search catalogue
+Search based on 
+location : Movie - Theatre - timing- Available seats
+Location : Theatre - Movie - timing - Available seats
+
+
+	Search based on location - Should return Movies and theatres
+
+	Select Movies/theatre - Return timings
+
+	Select timings - return seats.
+
+
+
+	Return Proposal ID;
+
+		Key :  Value
+
+		ID : (Location, theatre, movie, timing, Seat)
+
+
+Signup:
+
+Take user details - Name, emailid, Userid, Password
+
+Return - Success or failure if user already exist.
+
+               Check email id already exist.
+
+Login:
+
+	Login with username and password
+
+	Server will return access token - 10 mins
+
+	Add refresh token (If possible)
+
+
+Booking
+
+Book with Proposal Id
+Proposal ID, Session ID
+Ask for payment
+Submit the payment
+Return Booked details (Ticket details - Ticket number, Movie details)
+
+
+	Non Happy flow:
+
+	 1. Booking failed
+
+		a. Seat already booked due to concurrent booking.
+
+		b. Payment failed
+
+****************************************************************************************************************
+
+
+
+REST API DESIGN - Rest principles.
+
+
+GET - 
+
+
+
+POST - 
+
+
+
+PUT - 
+
+
+
+****************************************************************************************************************
+
+
+
+DATABASE DESIGN
+
+
+
+APPLICATION DESIGN
