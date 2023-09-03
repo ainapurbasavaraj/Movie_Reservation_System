@@ -1,5 +1,7 @@
 # Movie_Reservation_System
 
+Architecture diagram : https://b6f7.short.gy/Yt7zAn
+
 Idempotancy : https://medium.com/@saurav200892/how-to-achieve-idempotency-in-post-method-d88d7b08fcdd
 
 Rest principles : https://github.com/ainapurbasavaraj/REST-Priniciples
