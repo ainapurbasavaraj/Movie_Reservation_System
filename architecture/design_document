@@ -67,14 +67,103 @@ Return Booked details (Ticket details - Ticket number, Movie details)
 
 REST API DESIGN - Rest principles.
 
+showdetails : {
+	showtime : datetime,
+	seatnumbers : [integer]
+}
 
-GET - 
+price : {
+	amount : integer,
+	currency : string,
+}
+
+GET - http:/localhost/reservationService/location - Return all the locations
+      Response:
+	{
+		locations: [{
+		    	locationid : string,
+			locationname : string,
+		}]
+	}
+      http:/localhost/reservationService/movies?locationId={locationId} - return  movies - theatres - showtime and available seats
+	Response:
+	{
+		movies: [{
+			movieId : string,
+			moviename : string,
+			theatres : [{
+				theatreid : string,
+				theatrename : string,
+				theatretype : [PVR, IMAX, INOX]
+				Address : string,
+				available slots : [showdetails],
+				price : price
+			}],
+			
+		}]
+	}
+      http:/localhost/reservationService/theatres?locationId={locationId} - return theatres - movies - showtime and available seats
+
+      Responses:
+	{
+		theatres: [{
+			theatreid : string,
+			theatreName : string,
+			theatretype : [PVR, IMAX, INOX],
+			Address : string,
+			movies : [{
+				movieName : string,
+				movieId : string,
+				available slots : [showdetails],
+				price : price
+			}],
+			
+		}]
+	}
 
 
+POST -  http:/localhost/reservationService/bookticket
+	{
+		location : string,
+		theatreId : string,
+		movieId : string,
+		available slot : [showdetails],
+           
+	}
 
-POST - 
+	Response : 
+	{
+		booking details : {
+		status : string,
+		bookingid : string,
+		theatreName : string,
+		theatretype : [PVR, IMAX, INOX],
+		Address : string,
+		moviename : string,
+		showdetails : showdetails,
+		bookingAmount : price,
+		}
+	}
+	
 
+Payment:
+POST - http:/localhost/reservationService/payment
+	{
+		bookingId : string,
+		bookingAmount : price
+	}
 
+	Response:
+	{
+		status : [SUCCESS, FAILURE],
+		bookingId : string,
+		bookingAmount : price
+	}
+
+POST -  http:/localhost/reservationService/confirmticket
+	{
+		bookingId : string,
+	}
 
 PUT - 
 
