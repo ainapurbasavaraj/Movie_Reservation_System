@@ -165,9 +165,44 @@ POST -  http:/localhost/reservationService/confirmticket
 		bookingId : string,
 	}
 
-PUT - 
 
+signup - 
 
+POST - http:/localhost/reservationService/register
+	{
+		userid : string,
+		name : string,
+		password : string,
+		emailid : string,
+		phoneNumber : alphanumeric
+	}
+
+	Response:
+	{
+		status : [SUCCESS, FAILURE],
+		
+	}
+
+Login - 
+POST -  http:/localhost/reservationService/login
+	{
+		userid : string,
+		password: string
+	}
+
+	Response:
+	{
+		accesstoken : string
+	}
+
+// Server will generate access token after login and stores accesstoken and timevalidity.
+// Then on subsequent requests, Server verifies the accesstoken to authorize the user and refersh the token periodically (extend the time)
+
+Logout - 
+DELETE - http:/localhost/reservationService/logout
+	{
+		userid : string
+	}
 
 ****************************************************************************************************************
 
