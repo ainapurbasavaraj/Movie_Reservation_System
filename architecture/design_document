@@ -8,8 +8,8 @@ Searching
 
 Search catalogue
 Search based on 
-location : Movie - Theatre - timing- Available seats
-Location : Theatre - Movie - timing - Available seats
+location Id : Movie - Theatre - timing- Available seats
+Location Id : Theatre - Movie - timing - Available seats
 
 
 	Search based on location - Should return Movies and theatres
@@ -204,11 +204,60 @@ DELETE - http:/localhost/reservationService/logout
 		userid : string
 	}
 
+DeleteAccount:
+DELETE - http:/localhost/reservationService/deregister
+	{
+		userid : string,
+		password : string
+	}
+	Response:
+	{
+		status : [SUCCESS, FAILURE]
+	}
+//Deletes the user from the database
 ****************************************************************************************************************
 
 
 
 DATABASE DESIGN
+
+Read - postrgresql
+
+RDBMS
+
+USER TABLE
+userid(Unique), username, emailid(Unique), password(encrypted), phone(Unique)
+
+
+
+LOGIN_SESSION TABLE
+userid, accetoken, refreshtime
+
+
+MOVIE DATABASE:
+
+LOCATION TABLE
+locationid, locationname 
+
+THEATRE TABLE
+
+TheaterId, TheatreName, Theatretype, Address, locationId
+
+MOVIE TABLE
+
+MovieId, MovieName       
+
+
+SHOW_DETAILS TABLE
+TheatreId, MovieId, showtime, Total seats, Available seats, Amount, Currency
+
+ ABC,	    1,       10  ,  10,   5, 
+ XYZ,       1,      
+ ABC,       1,        2,
+ ABC,       2,        2
+
+
+
 
 
 
