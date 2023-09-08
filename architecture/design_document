@@ -68,7 +68,8 @@ Return Booked details (Ticket details - Ticket number, Movie details)
 REST API DESIGN - Rest principles.
 
 showdetails : {
-	showtime : datetime,
+	showdate : Date,
+	showtime : time,
 	seatnumbers : [integer]
 }
 
@@ -245,19 +246,22 @@ TheaterId, TheatreName, Theatretype, Address, locationId
 
 MOVIE TABLE
 
-MovieId, MovieName       
+MovieId, MovieName , locationid
+
+SHOWS_DETAILS
+show_id, TheatreId, MovieId, showdate, showtime
 
 
-SHOW_DETAILS TABLE
-TheatreId, MovieId, showtime, Total seats, Available seats, Amount, Currency
-
- ABC,	    1,       10  ,  10,   5, 
- XYZ,       1,      
- ABC,       1,        2,
- ABC,       2,        2
+SHOW TABLE
+show_id, Total seats, Available seats, Amount, Currency
 
 
+BOOKING TABLE:
+bookingid, userid, show_id, booked seats, payment status
 
+
+TICKET TABLE
+ticketid, bookingid, ticket url
 
 
 
