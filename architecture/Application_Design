@@ -1,1 +1,43 @@
 
+class response:
+  int statuscode
+
+  // Decode all the https status codes and basic validation on status codes
+
+
+class request:
+  //Decode the request api and route it to particular decoder
+
+
+//generice decoder and encoders
+class decoder:
+  
+
+class encoder:
+
+
+
+class user_details:
+  userid : string,
+  name : string,
+  password : string,
+  emailid : string,
+  phoneNumber : alphanumeric
+
+
+
+class signUp_response(response):
+  statuscode:int,
+  description : string
+
+  decoder(response)
+
+  
+  
+class signUp_encoder(encoder):
+
+  encode()
+
+
+
+
