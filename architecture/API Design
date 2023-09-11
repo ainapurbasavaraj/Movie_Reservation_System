@@ -67,7 +67,7 @@ POST -  http:/localhost/reservationService/bookticket
 
 	Response : 
 	{
-		booking details : {
+		booking detail : {
 		status : string,
 		bookingid : string,
 		theatreName : string,
@@ -79,6 +79,65 @@ POST -  http:/localhost/reservationService/bookticket
 		}
 	}
 	
+
+GET - http:/localhost/reservationService/getBookingDetails
+	{
+		userId : string,
+	}
+
+	RESPONSE:
+	{
+		booking details : [{
+		status : string,
+		bookingid : string,
+		theatreName : string,
+		theatretype : [PVR, IMAX, INOX],
+		Address : string,
+		moviename : string,
+		showdetails : showdetails,
+		bookingAmount : price,
+		}]
+	}
+GET - http:/localhost/reservationService/getBookingDetail
+	{
+		userId : string,
+		bookingId : string,
+	}
+	RESPONSE:
+	{
+		booking detail : {
+		status : string,
+		bookingid : string,
+		theatreName : string,
+		theatretype : [PVR, IMAX, INOX],
+		Address : string,
+		moviename : string,
+		showdetails : showdetails,
+		bookingAmount : price,
+		}
+	}
+
+GET - http:/localhost/reservationService/getTicketingDetails
+	{
+		ueserId : string
+	}
+
+	RESPONSE:
+	{
+		ticketUrls : [url]
+	}
+
+GET - http:/localhost/reservationService/getTicketingDetail
+	{
+		ueserId : string,
+		ticketingId : string
+	}
+
+	RESPONSE:
+	{
+		ticketUrl : url
+	}
+
 
 Payment:
 POST - http:/localhost/reservationService/payment
