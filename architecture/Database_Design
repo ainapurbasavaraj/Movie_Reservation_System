@@ -1,0 +1,42 @@
+DATABASE DESIGN
+
+Read - postrgresql
+
+RDBMS
+
+USER TABLE
+userid(Unique), username, emailid(Unique), password(encrypted), phone(Unique)
+
+
+
+LOGIN_SESSION TABLE
+userid, accetoken, refreshtime
+
+
+MOVIE DATABASE:
+
+LOCATION TABLE
+locationid, locationname 
+
+THEATRE TABLE
+
+TheaterId, TheatreName, Theatretype, Address, locationId
+
+MOVIE TABLE
+
+MovieId, MovieName , locationid
+
+SHOWS_DETAILS
+show_id, TheatreId, MovieId, showdate, showtime
+
+
+SHOW TABLE
+show_id, Total seats, Available seats, Amount, Currency
+
+
+BOOKING TABLE:
+bookingid, userid, show_id, booked seats, payment status
+
+
+TICKET TABLE
+ticketid, bookingid, ticket url
