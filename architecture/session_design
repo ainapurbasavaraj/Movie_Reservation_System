@@ -1,1 +1,7 @@
 
+
+ACESS TOKEN
+1. Use Redis database to store the access tokens.
+2. On login create access token and store it in redis database.
+
+Implementing with blocking call. Session id or co-relation id is not required.
