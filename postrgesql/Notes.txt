@@ -1,1 +1,7 @@
+
+To connect to dbuser:
+psql -U postgres
+
+
+
 python-postgreql connector library : https://www.dataquest.io/blog/tutorial-connect-install-and-query-postgresql-in-python/#:~:text=Psycopg2%20is%20the%20most%20widely,is%20very%20fast%20and%20efficient.
