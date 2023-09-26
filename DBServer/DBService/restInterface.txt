@@ -1,41 +1,5 @@
 signup - 
 
-POST - http:/localhost/reservationService/register
-	{
-		userid : string,
-		name : string,
-		password : string,
-		emailid : string,
-		phoneNumber : alphanumeric
-	}
-
-	Response:
-	{
-		status : [SUCCESS, FAILURE],
-		
-	}
-
-Login - 
-POST -  http:/localhost/reservationService/login
-	{
-		userid : string,
-		password: string
-	}
-
-	Response:
-	{
-		accesstoken : string
-	}
-
-USER TABLE
-userid(Unique), username, emailid(Unique), password(encrypted), phone(Unique)
-
-
-
-LOGIN_SESSION TABLE
-userid, accetoken, refreshtime
-
-
 POST - http://localhost/dbservice/registeruser
 {
 		userid : string,
@@ -46,16 +10,14 @@ POST - http://localhost/dbservice/registeruser
 }
 
 Response:
-	{
-		status : [SUCCESS, FAILURE]
-    errorcode: string [optional]  -- Errorcode and response are to be finalized.
-    description: string
-	}
-
-POST - http:/localhost/dbservice/logindetails
 {
-  userid : string
+	status : [SUCCESS, FAILURE]
+	errorcode: string [optional]  -- Errorcode and response are to be finalized.
+	description: string
 }
+
+GET - http:/localhost/dbservice/logindetails/<userid>
+
 
 Response:
 {
