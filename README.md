@@ -7,3 +7,8 @@ Idempotancy : https://medium.com/@saurav200892/how-to-achieve-idempotency-in-pos
 Rest principles : https://github.com/ainapurbasavaraj/REST-Priniciples
 
 REST methods : https://www.restapitutorial.com/lessons/httpmethods.html
+
+AWS instance login details : 
+chmod 400 "Basavanagar-key.pem"
+ssh -i "Basavanagar-key.pem" ubuntu@ec2-18-204-203-169.compute-1.amazonaws.com
+
