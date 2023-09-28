@@ -14,3 +14,4 @@ ssh -i "Basavanagar-key.pem" ubuntu@ec2-18-204-203-169.compute-1.amazonaws.com
 AWS account id : 165178850723
 users : basavaraj,girish
 
+
