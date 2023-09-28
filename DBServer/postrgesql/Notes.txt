@@ -1,7 +1,147 @@
 
 To connect to dbuser:
-psql -U postgres
-
+sudo -u postgres psql
 
 
 python-postgreql connector library : https://www.dataquest.io/blog/tutorial-connect-install-and-query-postgresql-in-python/#:~:text=Psycopg2%20is%20the%20most%20widely,is%20very%20fast%20and%20efficient.
+
+
+DB Commands:
+
+pip install postgresql
+
+default database : postgres
+\l+ or \list to show databases
+\c 'databasename' to connect to database
+\d to show tables in the databases
+\d 'table name' to show the table schema
+\dT 'To check userdefined datatypes'
+\? - To check the help
+
+create tables:
+USER TABLE
+userid(Unique), username, emailid(Unique), password(encrypted), phone(Unique)
+
+create table USER 
+CREATE TABLE USER_INFO(
+   userid varchar(80) PRIMARY KEY NOT NULL,
+   username varchar(80) UNIQUE NOT NULL,
+   emailid varchar(80) UNIQUE NOT NULL,
+   password varchar(80) NOT NULL,
+   phone varchar(80) UNIQUE NOT NULL
+);
+
+LOGIN_SESSION TABLE
+userid, accetoken, refreshtime
+
+CREATE TABLE LOGIN_SESSION(
+   userid varchar(80) PRIMARY KEY NOT NULL,
+   accetoken varchar(80) UNIQUE NOT NULL,
+   refreshtime timestamp,
+   CONSTRAINT fk_userid
+      FOREIGN KEY(userid) 
+	    REFERENCES USER_INFO(userid)
+);
+
+LOCATION TABLE
+locationid, locationname 
+
+CREATE TABLE LOCATION_TABLE(
+   locationid varchar(80) PRIMARY KEY NOT NULL,
+   locationname varchar(80) UNIQUE NOT NULL
+);
+
+THEATRE TABLE
+
+TheaterId, TheatreName, Theatretype, Address, locationid
+
+CREATE TYPE theatre_type AS ENUM ('PVR', 'INOX', 'IMAX');
+
+CREATE TABLE THEATRE_TABLE(
+   TheaterId varchar(80) PRIMARY KEY NOT NULL,
+   TheatreName varchar(80) NOT NULL,
+   Theatretype theatre_type,
+   Address varchar(80),
+   locationid varchar(80),
+   CONSTRAINT fk_locationId
+      FOREIGN KEY(locationid) 
+	    REFERENCES LOCATION_TABLE(locationid)
+);
+
+MOVIE TABLE
+
+MovieId, MovieName , locationid
+
+CREATE TABLE MOVIE_TABLE(
+   MovieId varchar(80) PRIMARY KEY NOT NULL,
+   MovieName varchar(80) NOT NULL,
+   locationid varchar(80),
+   CONSTRAINT fk_locationId
+      FOREIGN KEY(locationid) 
+	    REFERENCES LOCATION_TABLE(locationid)
+);
+
+SHOWS_DETAILS
+show_id, TheatreId, MovieId, showdate, showtime
+
+CREATE TABLE SHOW_DETAILS(
+   show_id varchar(80) PRIMARY KEY NOT NULL,
+   TheaterId varchar(80) NOT NULL,
+   MovieId varchar(80) NOT NULL,
+   showdate date,
+   showtime time,
+   CONSTRAINT fk_TheaterId
+      FOREIGN KEY(TheaterId) 
+	    REFERENCES THEATRE_TABLE(TheaterId),
+   CONSTRAINT fk_MovieId
+      FOREIGN KEY(MovieId) 
+	    REFERENCES MOVIE_TABLE(MovieId)
+);
+
+SHOW TABLE
+show_id, Total seats, Available seats, Amount, Currency
+
+CREATE TABLE SHOW_TABLE(
+   show_id varchar(80) PRIMARY KEY NOT NULL,
+   total_seats INT NOT NULL,
+   available_seats INT NOT NULL,
+   Amount INT NOT NULL,
+   Currency VARCHAR(10),
+   CONSTRAINT fk_show_id
+      FOREIGN KEY(show_id) 
+	    REFERENCES SHOW_DETAILS(show_id)
+);
+
+BOOKING TABLE:
+bookingid, userid, show_id, booked seats, payment status
+
+CREATE TYPE payment_status AS ENUM ('SUCCESS', 'FAILURE', 'PENDING');
+
+CREATE TABLE BOOKING_TABLE(
+   booking_id varchar(80) PRIMARY KEY NOT NULL,
+   userid varchar(80) NOT NULL,
+   show_id varchar(80) NOT NULL,
+   booked_seats INT NOT NULL,
+   payment_status payment_status NOT NULL,
+
+   CONSTRAINT fk_userid
+      FOREIGN KEY(userid) 
+	    REFERENCES USER_INFO(userid),
+    CONSTRAINT fk_show_id
+      FOREIGN KEY(show_id) 
+	    REFERENCES SHOW_DETAILS(show_id)
+);
+
+TICKET TABLE
+ticketid, bookingid, ticket url
+
+CREATE TABLE TICKETING_TABLE(
+   ticket_id varchar(80) PRIMARY KEY NOT NULL,
+   booking_id varchar(80) NOT NULL,
+   ticket_url varchar(80),
+
+   CONSTRAINT fk_booking_id
+      FOREIGN KEY(booking_id) 
+	    REFERENCES BOOKING_TABLE(booking_id)
+);
+
