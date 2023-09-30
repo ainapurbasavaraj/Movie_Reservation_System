@@ -8,6 +8,8 @@ Rest principles : https://github.com/ainapurbasavaraj/REST-Priniciples
 
 REST methods : https://www.restapitutorial.com/lessons/httpmethods.html
 
+flask : https://flask.palletsprojects.com/en/2.3.x/deploying/
+
 AWS instance login details : 
 chmod 400 "Basavanagar-key.pem"
 ssh -i "Basavanagar-key.pem" ubuntu@ec2-18-204-203-169.compute-1.amazonaws.com
