@@ -1,0 +1,7 @@
+Why we need DB Service?
+
+When we have cluster of database running as part of duplication of data. Consistency is important
+i.e A read of data item from any node results in same data across multiple nodes.
+
+So In order to provide strong consistency, DB service should write to all the data replicas at the same time before responding back.
+Or, Atelase we shoud have mechanism of consistencies like eventual consistency etc based on our system requirement.
