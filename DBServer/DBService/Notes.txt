@@ -5,3 +5,7 @@ i.e A read of data item from any node results in same data across multiple nodes
 
 So In order to provide strong consistency, DB service should write to all the data replicas at the same time before responding back.
 Or, Atelase we shoud have mechanism of consistencies like eventual consistency etc based on our system requirement.
+
+- Uniform interface to access the Data from application.
+- Decouple Application logic from Database connections/queries.
+- Update on application server need not update DB service and vice versa.
