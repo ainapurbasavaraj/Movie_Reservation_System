@@ -1,1 +1,25 @@
-nginx vs nginxplus : https://www.nginx.com/products/nginx/compare-models/
+
+Good reference : https://www.nginx.com/blog/3-models-nginx-microservices-reference-architecture/
+Admin guide: https://docs.nginx.com/nginx/admin-guide/installing-nginx/installing-nginx-open-source/
+
+nginx open source - Is onen source version of NGINX with limited support and less features
+nginx plus - is enterprised edition of software with rich functionality 
+
+To check difference between nging and nginx plus : https://www.nginx.com/products/nginx/compare-models/
+
+In this course we will learn about Nginx open source and how we can use it in our project.
+
+- Installation : https://docs.nginx.com/nginx/admin-guide/installing-nginx/installing-nginx-open-source/
+    -  Install from prebuilt packages
+    -  Compile from source 
+
+- Deploying NGINX with docker : https://docs.nginx.com/nginx/admin-guide/installing-nginx/installing-nginx-docker/
+
+
+Basics:
+
+Controlling NGINX Processes at runtime: https://docs.nginx.com/nginx/admin-guide/basic-functionality/runtime-control/
+NGINX Architecture: https://www.nginx.com/resources/library/infographic-inside-nginx/
+
+Config files: 
+https://docs.nginx.com/nginx/admin-guide/basic-functionality/managing-configuration-files/
