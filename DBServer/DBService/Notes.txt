@@ -9,3 +9,6 @@ Or, Atelase we shoud have mechanism of consistencies like eventual consistency e
 - Uniform interface to access the Data from application.
 - Decouple Application logic from Database connections/queries.
 - Update on application server need not update DB service and vice versa.
+
+
+SQL VS NOSQL : https://www.quora.com/What-are-some-reasons-to-use-traditional-RDBMS-over-NoSQL
