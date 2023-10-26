@@ -98,10 +98,10 @@ CREATE TABLE SHOW_DETAILS(
 	    REFERENCES MOVIE_TABLE(MovieId)
 );
 
-SHOW TABLE
+SHOW_SEATS_AVAILABILITY TABLE
 show_id, Total seats, Available seats, Amount, Currency
 
-CREATE TABLE SHOW_TABLE(
+CREATE TABLE SHOW_SEATS_AVAILABILITY(
    show_id varchar(80) PRIMARY KEY NOT NULL,
    total_seats INT NOT NULL,
    available_seats INT NOT NULL,
