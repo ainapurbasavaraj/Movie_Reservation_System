@@ -1,0 +1,79 @@
+Low Level Design:
+
+Use cases:
+Title : what is the goal?
+Primary Actor : Who desired it?
+Success scenario : How is it accomplished?
+
+
+usecase 1 : Search Movie
+Actors : User
+Success sceanrio:
+1. User search for the movie based on location
+2. Service returns list of theatres for that movie in that location
+
+usecase 2 : Book Movie
+Actors : User
+Success scenario:
+1. User select movie, show timings and theatre
+2. Service should return the available seats, ticket price
+3. User select the seats and confirms the booking
+4. Service asks for the payment details
+5. User completes the payment
+6. Service should return the booked ticket details
+
+usecase 3 : Cancel Movie
+Actors : User
+Success scenario:
+1. User retrieve the booked tickets after logging in
+2. Select the booked ticket for cancellation
+3. Service should cancel the ticket and unblock the seats
+4. Service should return cancelled confirmation
+
+
+usecase 4 : login
+Actors : User, Admin
+Success scenarios:
+1. User provides credntials 
+2. Service validates the credentials
+3. Service allows access to the resources
+
+uescase 5 : Search theatre
+Actors : User
+Success scenario:
+1. User search for the theatres based on location
+2. Service returns list of movies running in that theatres for the given location
+
+
+usecase 6 : Query tickets
+Actors : User
+1. User search for the tickets after logging in
+2. Service provides all the tickets for the user
+
+usecase 7: signup
+Actors : User, Admin
+Success scenario:
+1. User inputs user details and password.
+2. Service validates user details and create user
+3. Service respond with created user id.
+
+usecase 8: Logout
+Actors : User, Admin
+success scenarios:
+1. user logout of the service.
+2. Service will terminate user session.
+
+usecase 9: Payment
+Actor: user
+Success scenario:
+1. User inputs the card details
+2. Service process the payment
+
+***********************************************************
+usecase 4 : Add new movies
+Actors :  Admin
+success scenarios:
+1. 
+
+usecase 5 : Add new theatres
+Actors :  Admin
