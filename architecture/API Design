@@ -139,11 +139,18 @@ GET - http:/localhost/reservationService/getTicketingDetail
 	}
 
 
+PaymentDetails : {
+	cardNumber : string,
+	name : string,
+	cvv : string
+}
+
 Payment:
 POST - http:/localhost/reservationService/payment
 	{
 		bookingId : string,
-		bookingAmount : price
+		bookingAmount : price,
+		PaymentDetails : PaymentDetails,
 	}
 
 	Response:
@@ -151,11 +158,6 @@ POST - http:/localhost/reservationService/payment
 		status : [SUCCESS, FAILURE],
 		bookingId : string,
 		bookingAmount : price
-	}
-
-POST -  http:/localhost/reservationService/confirmticket
-	{
-		bookingId : string,
 	}
 
 
