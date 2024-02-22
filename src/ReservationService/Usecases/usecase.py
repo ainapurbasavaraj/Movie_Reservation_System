@@ -1,18 +1,21 @@
 
-from Actions.Action import UsecaseAction
+from actions.action import UsecaseAction
 
 class usecase(object):
 
-    def __init__(self) -> None:
+    def __init__(self, content) -> None:
         #Map of actions
         #ACTION1, SUCCESS, ACTION2
         #ACTION1, FAILURE, ACTION3
         self.actions_map = dict()
         self.start_action = None
         self.default_action = None
+        self.content = content
         self.register_actions()
 
-    
+    def get_usecase_content(self):
+        return self.content
+
     def set_next_action(self, action1, status, action2):
         destActionDict = self.actions_map.get(action1,None)
         if destActionDict:
@@ -51,18 +54,3 @@ class usecase(object):
 
 
 
-class searchUsecase(usecase):
-
-    def __init__(self) -> None:
-        super().__init__()
-
-    def register_actions(self):
-
-        action1 = UsecaseAction()
-        action2 = UsecaseAction()
-        action3 = UsecaseAction()
-
-        self.set_start_action(action1)
-        self.set_next_action(action1 , "SUCCESS", action2)
-        self.set_next_action(action1 , "FAILURE", action3)
-        self.set_default_action(action3)
