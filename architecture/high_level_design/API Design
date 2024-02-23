@@ -4,7 +4,8 @@ showdetails : {
 	showId : string,
 	showdate : Date,
 	showtime : time,
-	seatnumbers : [integer]
+	available seats : [integer],
+	price : price
 }
 
 price : {
@@ -31,8 +32,7 @@ GET - http:/localhost/reservationService/location - Return all the locations
 				theatrename : string,
 				theatretype : [PVR, IMAX, INOX]
 				Address : string,
-				available slots : [showdetails],
-				price : price
+				available slots : [showdetails]
 			}],
 			
 		}]
@@ -49,8 +49,7 @@ GET - http:/localhost/reservationService/location - Return all the locations
 			movies : [{
 				movieName : string,
 				movieId : string,
-				available slots : [showdetails],
-				price : price
+				available slots : [showdetails]
 			}],
 			
 		}]
@@ -59,11 +58,9 @@ GET - http:/localhost/reservationService/location - Return all the locations
 
 POST -  http:/localhost/reservationService/bookticket
 	{
-		location : string,
-		theatreId : string,
-		movieId : string,
-		available slot : [showdetails],
-           
+		showId : string,
+		number of seats : integer,
+		booking amount : price (calculated by front end and needs to validate in the backend)
 	}
 
 	Response : 
