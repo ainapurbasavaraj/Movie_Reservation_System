@@ -1,6 +1,7 @@
 REST API DESIGN - Rest principles.
 
 showdetails : {
+	showId : string,
 	showdate : Date,
 	showtime : time,
 	seatnumbers : [integer]
