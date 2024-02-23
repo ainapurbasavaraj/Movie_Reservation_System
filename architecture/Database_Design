@@ -27,11 +27,11 @@ MOVIE TABLE
 MovieId, MovieName , locationid
 
 SHOWS_DETAILS
-show_id, TheatreId, MovieId, showdate, showtime
+show_id, TheatreId, MovieId
 
 
 SHOW TABLE
-show_id, Total seats, Available seats, Amount, Currency
+show_id, Total seats, Available seats, Amount, Currency, showdate, showtime
 
 
 BOOKING TABLE:
