@@ -1,4 +1,4 @@
-
+from json import load
 from reservationService.encoders.encoder import Encoder
 
 class SearchByLocationEncoder(Encoder):
@@ -6,4 +6,10 @@ class SearchByLocationEncoder(Encoder):
         super().__init__(content)
 
     def encode(self):
-        pass
+        #location=self.content.get_locations()
+        location_response=self.content.get_response()
+        print(f'location_response --> {location_response}')
+        # location=location_response.get_locations()
+        # if location:
+        #     return location
+        return location_response

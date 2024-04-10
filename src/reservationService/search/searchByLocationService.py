@@ -1,9 +1,11 @@
 
+from reservationService.usecases.usecase import usecase
 from reservationService.search.searchContent import SearchByLocationContent
 from reservationService.decoders.serviceDecoders.searchByLocationDecoder import SearchByLocationDecoder
 from reservationService.encoders.serviceEncoders.searchByLocationEncoder import SearchByLocationEncoder
 from reservationService.usecases.usecaseContent.searchByLocationUsecaseContent import SearchByLocationUsecaseContent
 from reservationService.usecases.searchUsecase import searchUsecase
+from reservationService.usecases.searchByLocationUsecase import SearchByLocationUsecase
 
 class SearchByLocationService:
     def __init__(self) -> None:
@@ -17,15 +19,17 @@ class SearchByLocationService:
         self.decoder.decode(request)
         self.pre_execute(self.serviceContent, self.usecaseContent)
 
-        usecase = searchUsecase(self.usecaseContent)
+        # usecase = searchUsecase(self.usecaseContent)
+        usecase = SearchByLocationUsecase(self.usecaseContent)
         usecase.run()
 
         self.post_execute(self.usecaseContent, self.serviceContent)
         return self.encoder.encode()
 
     
-    def pre_execute(serviceContent, usecaseContent):
+    def pre_execute(self,serviceContent, usecaseContent):
         pass
 
-    def post_execute(usecaseContent, serviceContent):
-        pass
+
+    def post_execute(self,usecaseContent, serviceContent):
+        serviceContent.set_response(usecaseContent.get_locations())

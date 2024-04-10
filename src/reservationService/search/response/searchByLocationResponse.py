@@ -6,9 +6,12 @@ class SearchByLocationResponse:
 
     def set_location(self, location):
         self.locations.append(location)
+    
+    def set_locations(self, locations):
+        self.locations.extend(locations)
 
     def get_locations(self):
-        self.locations
+        return self.locations
 
     def get_location(self, locationId):
         locationobj = [location for location in self.locations

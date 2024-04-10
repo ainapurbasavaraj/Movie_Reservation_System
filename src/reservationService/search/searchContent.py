@@ -1,5 +1,5 @@
 
-from content import Content
+from reservationService.content import Content
 
 class SearchByLocationContent(Content):
 
@@ -13,6 +13,8 @@ class SearchByLocationContent(Content):
     def set_response(self, response):
         self.response = response
 
+    def get_response(self):
+        return self.response
 
 class SearchByMovieContent(Content):
 

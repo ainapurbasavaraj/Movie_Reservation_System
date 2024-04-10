@@ -1,0 +1,10 @@
+How to Install Psycopg2
+To use Psycopg2, you need to install it first. The easiest way is to use pip. As with other Python projects, it's recommended to use a virtual environment for installing the library:
+
+virtualenv env && source env/bin/activate
+pip install psycopg2-binary
+
+Execution:
+1.step1:sudo apt install python3-virtualenv - to install the virtualenv
+2.study virtual environment through the following link:
+https://www.dataquest.io/blog/a-complete-guide-to-python-virtual-environments/

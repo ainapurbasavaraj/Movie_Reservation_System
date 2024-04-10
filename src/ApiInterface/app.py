@@ -2,13 +2,16 @@ from flask import Flask, jsonify, request
 #from flask_restful import Resource
 import json
 import os
-from ReservationService.Usecases.usecase import searchUsecase
+#from reservationService.search.searchByLocationService import SearchByLocationService
+from reservationService.usecases import searchUsecase
+from reservationService.search import searchByLocationService,searchByMovieService,searchByTheatreService
 
 app = Flask(__name__)
 
 
 @app.route("/reservationService/location")
 def get_location():
+
 
     #Return dict of location id and names
     #{
@@ -17,9 +20,12 @@ def get_location():
 	# 		locationname : string,
 	# 	}]
 	# }
-    obj = searchUsecase()
-    obj.run()
-    return "location"
+	location_service_obj=searchByLocationService.SearchByLocationService()
+	locations=location_service_obj.execute(request)
+	if locations:
+		return locations
+	else:
+		return 'The locations are temporarily unavailable'
 
 
 @app.route("/reservationService/movies/<string:locationId>")
@@ -153,4 +159,4 @@ def deregister():
 
 
 if __name__ == "__main__":
-    app.run(debug = True, host = "0.0.0.0", port = 8080)
+    app.run(debug = True, host = "0.0.0.0", port = 5661)

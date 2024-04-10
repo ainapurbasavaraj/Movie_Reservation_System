@@ -1,0 +1,36 @@
+1.topics to cover in sql:
+
+https://www.educative.io/blog/top-40-sql-interview-questions?utm_campaign=brand_educative&utm_source=google&utm_medium=ppc&utm_content=performance_max_india&eid=5082902844932096&utm_term=&utm_campaign=%5BNew%5D+Performance+Max&utm_source=adwords&utm_medium=ppc&hsa_acc=5451446008&hsa_cam=18931439518&hsa_grp=&hsa_ad=&hsa_src=x&hsa_tgt=&hsa_kw=&hsa_mt=&hsa_net=adwords&hsa_ver=3&gclid=CjwKCAjw7c2pBhAZEiwA88pOF3Lb2pCjmHN5TImQlcn5EchuGBv-5dqbO-7V1tGjIEA9qg-mqFQ4ThoC54gQAvD_BwE
+
+
+2.difference between procedural and non procedural databases
+https://www.tutorialspoint.com/difference-between-procedural-and-non-procedural-language
+
+3.create a stored procedure to create all the necessary data
+
+4.difference between mysql and postgre sql databases
+
+https://aws.amazon.com/compare/the-difference-between-mysql-vs-postgresql/#:~:text=MySQL%20is%20a%20purely%20relational,programming%20languages%20like%20Java%20and%20.
+
+5.describing the acid properties:
+
+https://www.mongodb.com/basics/acid-transactions
+
+6.Database scalability overview:
+https://www.mongodb.com/basics/scaling
+
+7.Postgre sql scaling:
+https://postgresml.org/blog/scaling-postgresml-to-one-million-requests-per-second
+
+8.Understanding and creating ER Diagram.
+https://app.smartdraw.com/ - to create EDR diagram.
+
+9.Normalization and denormalization:
+https://www.linkedin.com/pulse/normalization-vs-denormalization-rohit-prasad
+Normalization is used in OLTP system, which emphasizes on making the insert, delete and update anomalies faster. As against, Denormalization is used in OLAP system, which emphasizes on making the search and analysis faster.
+
+10.performance tuning:
+https://www.crunchydata.com/blog/optimize-postgresql-server-performance
+
+11.Backup and restore procedure:
+https://www.postgresql.org/docs/current/backup.html

@@ -1,6 +1,6 @@
 
-from actions.action import UsecaseAction
-from usecase import usecase
+from reservationService.usecases.actions.action import UsecaseAction
+from reservationService.usecases.usecase import usecase
 
 class bookUsecase(usecase):
 
