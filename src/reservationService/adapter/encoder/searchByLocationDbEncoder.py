@@ -11,8 +11,12 @@ class SearchByLocationDbEncoder(Encoder):
     def encode(self):
 
         sql_builder=SqlBuilder()
-        build_maker=BuildMaker()
-        sql_statement=build_maker.Build_sql_searchByLocation(sql_builder)
-        dbc=DbClient(sql_statement)
-        dbc.execute()
+        build_maker=BuildMaker(sql_builder)
+        sql_statement=build_maker.Build_sql_searchByLocation()
+        dbc=DbClient()
+        dbc.execute(sql_statement)
         return dbc.get_result()
+
+# if __name__=="__main__":
+#     sbl=SearchByLocationDbEncoder(Encoder)
+#     print(sbl.encode())

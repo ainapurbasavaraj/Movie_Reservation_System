@@ -1,4 +1,4 @@
-from src.reservationService.dbinterface.builder import Builder
+from reservationService.dbinterface.builder import Builder
 
 class SqlBuilder(Builder):
     def __init__(self) -> None:
@@ -23,8 +23,9 @@ class SqlBuilder(Builder):
     def outerjoin(self):
         pass
 
-    def insert(self,values):
-        pass
+    def insert(self,table):
+        if not self.result:
+            self.insert=f'insert into {table}'
 
     def update(self,tables):
         pass
@@ -32,20 +33,25 @@ class SqlBuilder(Builder):
     def build(self):
         pass
 
-    def join(self):
-        pass
+    def join(self,table):
+        if self.result:
+            self.result+=f' join {table}'
 
-    def on(self):
-        pass
+    def ON(self,condition):
+        if self.result:
+            self.result+=f' ON {condition}'
 
-    def IN(self):
-        pass
+    def IN(self,condition):
+        if self.result:
+            self.result+=f' IN {condition}'
 
-    def AND(self):
-        pass
+    def AND(self,condition):
+        if self.result:
+            self.result+=f' AND {condition}'
 
-    def values(self):
-        pass
+    def values(self,values):
+        if self.result:
+            self.result+=f' ({values})'
 
     def set(self):
         pass
