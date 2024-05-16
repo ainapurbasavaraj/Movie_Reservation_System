@@ -1,4 +1,5 @@
 
+from reservationService.data.datamodel import Movie
 from reservationService.encoders.encoder import Encoder
 
 class SearchByMovieEncoder(Encoder):
@@ -35,13 +36,22 @@ class SearchByMovieEncoder(Encoder):
                 'available_slots':available_slots
             })
             theatre_list.append(theatre)
-            movie_dict.update({
-                "theatres":theatre_list
-            })
-            movie.append(movie_dict)
+            movie_id_found=False
+            if len(movie) >= 1:
+                for i in range(len(movie)):
+                    if movie[i]['movieId'] == movie_data.movieId:
+                        movie[i]['theatres'].append(theatre)
+                        movie_id_found=True
 
-        self.response.update({
-            "movies":movie
-        })
+            if not movie_id_found:
+                movie_dict.update({
+                    "theatres":theatre_list
+                })
+                movie.append(movie_dict)
+
+        # self.response.update({
+        #     "movies":movie
+        # })
     
-        return self.response
+        # return self.response
+        return movie

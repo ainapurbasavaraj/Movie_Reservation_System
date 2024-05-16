@@ -7,6 +7,9 @@ class Decoder:
     def decode(self, data):
         pass
 
+    def get_content(self):
+        return self.content
+    
     def get_dbcontent(self):
         return self.content
         

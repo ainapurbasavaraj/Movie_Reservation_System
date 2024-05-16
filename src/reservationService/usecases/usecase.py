@@ -18,14 +18,14 @@ class usecase(object):
 
     def set_next_action(self, action1, status, action2):
         destActionDict = self.actions_map.get(action1,None)
-        print(f'status --> {status},self.actions_map --> {self.actions_map}')
+        #print(f'status --> {status},self.actions_map --> {self.actions_map}')
         if destActionDict:
-            print(f'destActionDict --> {destActionDict}')
+            #print(f'destActionDict --> {destActionDict}')
             if destActionDict.get(status, None) is not None:
-                print(f'status --> {status}')
+                #print(f'status --> {status}')
                 raise Exception("Same status already registered for this action.")
             else:
-                print(f'setting the {status} for action')
+                #print(f'setting the {status} for action')
                 destActionDict[status] = action2
         else:
             self.actions_map[action1] = {status : action2}
@@ -41,19 +41,35 @@ class usecase(object):
         raise Exception("Not implemented action!!")
 
     def get_next_action(self,current_action, status):
+        try:
+            if self.actions_map.get(current_action)[status]:
+                return self.actions_map.get(current_action)[status]
+        except KeyError:
+            return None
         
-        return self.actions_map.get(current_action)[status]
 
     def run(self):
         next_action = self.start_action
         status = next_action.execute()
+        failure='FAILURE'
+        success='SUCCESS'
+        # print(f'status --> {status}')
         while(True):
             next_action = self.get_next_action(next_action, status)
-            if self.actions_map.get(next_action, self.default_action) is self.default_action:
-                self.default_action.execute()
-                break
+            if next_action:
+                if self.actions_map.get(next_action, self.default_action) is self.default_action:
+                    status=self.default_action.execute()
+                    break
+
+                else:
+                    status = next_action.execute()
             else:
-                status = next_action.execute()
+                break
+            # else:
+            #     return failure
+        if status==failure or status==None:
+            return None
+        return True
                 
 
 

@@ -15,7 +15,7 @@ class SqlBuilder(Builder):
 
     def where(self,conditions):
         if self.result:
-            self.result+=f' WHERE {conditions}'
+            self.result+=f" WHERE {conditions}"
 
     def innerjoin(self):
         pass
@@ -25,10 +25,11 @@ class SqlBuilder(Builder):
 
     def insert(self,table):
         if not self.result:
-            self.insert=f'insert into {table}'
+            self.result=f'insert into {table}'
 
     def update(self,tables):
-        pass
+        if not self.result:
+            self.result=f'update {tables}'
 
     def build(self):
         pass
@@ -50,11 +51,17 @@ class SqlBuilder(Builder):
             self.result+=f' AND {condition}'
 
     def values(self,values):
+        # print(f'args --> {values}')
         if self.result:
-            self.result+=f' ({values})'
+            self.result+=f' values{values}'
 
-    def set(self):
-        pass
+    def set(self,values):
+        if self.result:
+            self.result+=f' set {values}'
 
     def get_query(self):
         return self.result+';'
+
+    def delete(self,table):
+        if not self.result:
+            self.result+=f'delete from {table}'
