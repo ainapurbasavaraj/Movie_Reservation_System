@@ -1,0 +1,20 @@
+HLD questions
+
+
+1. Who is the customers?
+2. Which module of the system we are designing?
+3. Scale of the system? Capacity of the system? Which DB to use? Which part of the geography is this system is used?
+4. CAP Theorem ? What is required consistency or availability?
+5. What are the sequence of events?
+6. Authentication and Authorisation
+7. API designs?
+8. Microservices ?
+9. Communication between client and server? Synchronous vs Asynchronous.
+10. Data flow? Which service is aware of which data?
+11. Which database to use? SQL or NOSQL.
+12. Scaling DB? Horizontally  or vertically
+13. Caching and sharding ? Consistent sharding?
+14. Resiliency? If micro service go down or db is down?
+15. Health checks? To make sure entire system is running.
+16. Logging and monitoring ?
+17. Algos and DS
