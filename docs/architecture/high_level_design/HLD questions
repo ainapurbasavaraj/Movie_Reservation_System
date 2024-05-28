@@ -1,7 +1,7 @@
 HLD questions
 
 
-1. Who is the customers?
+1. Who is the customer?
 2. Which module of the system we are designing?
 3. Scale of the system? Capacity of the system? Which DB to use? Which part of the geography is this system is used?
 4. CAP Theorem ? What is required consistency or availability?
@@ -18,3 +18,24 @@ HLD questions
 15. Health checks? To make sure entire system is running.
 16. Logging and monitoring ?
 17. Algos and DS
+
+
+Design Movie reservation system.
+
+1. Here customers are all the users who wants to book movie ticket online.
+2. There can be multiple modules in the system. Example searching the movie, booking the movie, payment system, DB changes with admin privilage.
+    - In this module we can concentrate on serching the movies and booking the movies. Ignore payment system and db changes.
+3. Scale of the system 
+   Geography - Should be usable by across INDIA.
+   capacity esitmation - 1 million users
+   which DB to use - There are 2 choices SQL and NOSQL, Since the requirement here is mostly on transaction based we can go with SQL database.
+
+4. CAP theorem : https://medium.com/@sumitsethia94/consistency-or-availability-of-databases-do-you-really-understand-cap-8ecf2b3bb099
+  Consistency - Every read receives the most recent write or an error
+  Availability - Every request receives a response, without guarantee that it contains the most recent version of the information
+  Partition Tolerance - The system continues to operate despite arbitrary partitioning due to network failures
+  Networks aren't reliable, so you'll need to support partition tolerance. You'll need to make a software tradeoff between consistency and availability.
+
+  Chosing consistency over availability.
+   Consistency - System should be highly consistent as it involves financial transaction, its time bound activity as confirming the same seats with multiple users might cause an issue.
+   Avaibality -  System should be available 
