@@ -34,7 +34,7 @@ class DbAdapter(UsecaseAction):
         self.pre_execute(self.get_usecase_content(), self.get_adapter_content())        
         #send and recv data to db interface
         data = self.encoder.encode()
-        print(f'list_of_movies --> {data}')
+        print(f'data --> {data}')
 
         #location.id,location.name=1,'Bengaluru'
         #db_content=self.get_adapter_content()

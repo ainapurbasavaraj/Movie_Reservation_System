@@ -6,8 +6,8 @@ class DbClient:
         self.dbName='postgres'
         self.user='postgres'
         self.password='welcome'
-        self.result=[]
-        self.cur=self.get_cursor()
+        self.result=None
+        self.cur,self.conn=self.get_cursor()
 
     def get_cursor(self):
         conn=psycopg2.connect(f'dbname={self.dbName} user={self.user} password={self.password}')
@@ -15,11 +15,28 @@ class DbClient:
         # print(f'self.statement --> {self.statement}')
         # cur.execute(self.statement)
         # self.result=cur.fetchall()
-        return cur
+        return cur,conn
 
     def execute(self,request):
-        self.cur.execute(request)
-        self.result=self.cur.fetchall()
+        try:
+            #print(f'request inside psycopg2 --> {request}')
+            self.cur.execute(request)
+        except:
+            print(f'exception occured')
+            self.result='FAILURE'
+            return
+        # if 'update' not in request or request.find('insert')!=-1:
+        # # if request.find('insert')!=-1 or request.find('update')!=-1:
+        #     print(f'inside if condition --> {request}')
+        try:
+            self.result=self.cur.fetchall()
+            return self.result
+        except:
+            pass
+        
+        self.conn.commit()
+        self.result="SUCCESS"
+        
 
     def get_columns(self,table_schema, table_name):
 
