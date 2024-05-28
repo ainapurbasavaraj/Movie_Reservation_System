@@ -24,14 +24,21 @@ class SearchByLocationDbContent(Content):
 class SearchByMovieDbContent(Content):
 
     def __init__(self) -> None:
-        self.request = None
-        self.response = None
+        self.locationid = None
+        self.db_response = None
 
-    def set_request(self, request):
-        self.request = request
+    def set_req_locationid(self, locationid):
+        self.locationid = locationid
 
-    def set_response(self, response):
-        self.response = response
+    def get_req_locationid(self):
+        return self.locationid
+
+    def set_db_response(self,db_response):
+        self.db_response=db_response
+
+    def get_db_response(self):
+        return self.db_response
+
 
 
 class SearchByTheatreDbContent(Content):

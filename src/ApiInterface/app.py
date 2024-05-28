@@ -46,7 +46,10 @@ def search_movies_by_location(locationId):
 			
 	# 	}]
 	# }
-    return '{"Movies" : "%s"}' %(locationId)
+	movie_obj=searchByMovieService.SearchByMovieService()
+	list_of_movies=movie_obj.execute(locationId)
+
+	return '{"Movies" : "%s"}' %(list_of_movies)
 
 
 @app.route("/reservationService/theatres/<string:locationId>")

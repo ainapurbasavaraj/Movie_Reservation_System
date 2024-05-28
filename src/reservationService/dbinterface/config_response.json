@@ -1,0 +1,30 @@
+{
+    "location":{
+        "locatonid":"str",
+        "locationmame":"str"
+    },
+    "movies":	{
+		"movies": [{
+			"movieId" : "string",
+			"moviename" : "string",
+			"theatres" : [{
+				"theatreid" : "string",
+				"theatrename" : "string",
+				"theatretype" : ["PVR", "IMAX", "INOX"],
+				"address" : "string",
+				"available_slots" : {
+                    "show_id":"string",
+                    "showdate":"string",
+                    "showtime":"string",
+                    "available_seats":"string",
+                    "amount":"int"
+                }
+			}]			
+		}]
+	}
+}
+
+
+
+
+

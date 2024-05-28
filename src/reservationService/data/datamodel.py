@@ -19,6 +19,7 @@ class Location:
     
 @dataclass
 class ShowDetails:
+    showid: str
     showDate: str
     showTime: str
     # seatNumbers: list(int)

@@ -7,3 +7,6 @@ class Encoder:
 
     def encode(self):
         pass
+    
+    def get_content(self):
+        return self.content
