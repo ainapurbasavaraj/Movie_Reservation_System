@@ -6,7 +6,7 @@ HLD questions
 3. Scale of the system? Capacity of the system? Which DB to use? Which part of the geography is this system is used?
 4. CAP Theorem ? What is required consistency or availability?
 5. What are the sequence of events?
-6. Authentication and Authorisation
+6. Authentication and Authorisation, security
 7. API designs?
 8. Microservices ?
 9. Communication between client and server? Synchronous vs Asynchronous.
@@ -29,6 +29,7 @@ Design Movie reservation system.
    Geography - Should be usable by across INDIA.
    capacity esitmation - 1 million users
    which DB to use - There are 2 choices SQL and NOSQL, Since the requirement here is mostly on transaction based we can go with SQL database.
+   
 
 4. CAP theorem : https://medium.com/@sumitsethia94/consistency-or-availability-of-databases-do-you-really-understand-cap-8ecf2b3bb099
   Consistency - Every read receives the most recent write or an error
@@ -38,4 +39,31 @@ Design Movie reservation system.
 
   Chosing consistency over availability.
    Consistency - System should be highly consistent as it involves financial transaction, its time bound activity as confirming the same seats with multiple users might cause an issue.
-   Avaibality -  System should be available 
+   Avaibality -  System should be available but consistency takes priority
+
+   setting DB on HA mode : https://www.crunchydata.com/blog/a-guide-to-building-an-active-active-postgresql-cluster
+
+5. Search can be done without logging in. Booking should be done only after logging in.
+   search -> book-> payment -> getBookingdetails
+
+6. use https communication for login and payment.
+   Authenticate while booking the ticket and getting the booking details.
+
+7. Expalin Rest api design.
+
+8. We can design to have muliple microservices for each of the operation like searchservice, bookingservice, paymentservice, dbservice.
+
+9. Communication between client and server uses rest over http/s and it will be synchronous communication.
+
+10.
+
+11. There are 2 choices SQL and NOSQL, Since the requirement here is mostly on transaction based we can go with SQL database.
+
+12. scaling will be scaled horizontally for application as well as database as vertical scaling has limitation and its microservice designed for horizontal scaling.
+
+13. caching can be used in search flow to cache the movied and show details. sharding can be used on db to shard the data based on movie language.
+
+14. Resiliency and availabilty are different : https://aws.amazon.com/blogs/containers/a-deep-dive-into-resilience-and-availability-on-amazon-elastic-container-service/
+
+15. 
+
