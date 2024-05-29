@@ -65,5 +65,6 @@ Design Movie reservation system.
 
 14. Resiliency and availabilty are different : https://aws.amazon.com/blogs/containers/a-deep-dive-into-resilience-and-availability-on-amazon-elastic-container-service/
 
-15. 
+15. health checks : https://openliberty.io/docs/latest/health-check-microservices.html 
+    https://github.com/schabi88/healthcheck-extended
 
