@@ -1,6 +1,7 @@
 from reservationService.content import Content
 
-class BookMovieContent2(Content):
+
+class BookMovieContent(Content):
 
     def __init__(self) -> None:
         super().__init__()
