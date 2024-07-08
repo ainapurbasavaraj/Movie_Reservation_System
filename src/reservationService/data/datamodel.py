@@ -22,7 +22,6 @@ class ShowDetails:
     showid: str
     showDate: str
     showTime: str
-    # seatNumbers: list(int)
     seatNumbers: list()
 
 @dataclass
@@ -31,7 +30,6 @@ class Theatre:
     theatreName: str
     theatreType: TheatreType
     address: str
-    # availableSlots: list(ShowDetails)
     availableSlots: list()
     price: Price
 
@@ -40,7 +38,6 @@ class Movie:
 
     movieId: str
     movieName: str
-    #theatres: list(Theatre)
     theatres: list()
 
 @dataclass

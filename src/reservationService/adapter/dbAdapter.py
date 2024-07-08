@@ -21,12 +21,6 @@ class DbAdapter(UsecaseAction):
     def get_adapter_content(self):
         return self.content
 
-    # def set_encoder(self, encoder):
-    #     self.encoder = encoder(self.get_adapter_content())
-
-    # def set_decoder(self, decoder):
-    #     self.decoder = decoder(self.get_adapter_content())
-
     def pre_execute(self, usecase_content, db_content):
         pass
 
@@ -35,10 +29,6 @@ class DbAdapter(UsecaseAction):
         #send and recv data to db interface
         data = self.encoder.encode()
         print(f'data --> {data}')
-
-        #location.id,location.name=1,'Bengaluru'
-        #db_content=self.get_adapter_content()
-        #db_content.set_location(location)
 
         self.decoder.decode(data) #pass response to decoder
         self.post_execute(self.get_adapter_content(), self.get_usecase_content())

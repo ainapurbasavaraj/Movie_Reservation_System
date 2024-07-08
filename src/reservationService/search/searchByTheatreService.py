@@ -15,7 +15,6 @@ class SearchByTheatreService:
 
 
     def execute(self, request):
-        # print(f'self.decoder.decode(request) --> {request}')
         self.decoder.decode(request)
         self.pre_execute(self.serviceContent, self.usecaseContent)
 
@@ -27,10 +26,8 @@ class SearchByTheatreService:
 
     
     def pre_execute(self,serviceContent, usecaseContent):
-        #print(f'inside pre-execute --> {serviceContent.get_request()}')
         usecaseContent.set_req_locationid(serviceContent.get_request())
 
 
     def post_execute(self,usecaseContent, serviceContent):
-        #print(f'inside the post_execute --> {usecaseContent.get_res_theatre_list()}')
         serviceContent.set_response(usecaseContent.get_res_theatre_list())

@@ -8,10 +8,12 @@ class GetBookingDetailsEncoder(Encoder):
         self.response=dict()
 
     def encode(self):
-        bookingDetail=dict()
+        
         showdetails=[]
         res_content_from_db=self.get_content().get_res_content()
+        #print(f'res_content_from_db ############### {res_content_from_db}')
         for each_bookingDetail in res_content_from_db:
+            bookingDetail=dict()
             sd=each_bookingDetail.showDetails
             showDate=str(sd.showDate)
             showtime=str(sd.showTime)
@@ -32,6 +34,6 @@ class GetBookingDetailsEncoder(Encoder):
         self.response.update({
             "booking_details":self.bookingDetail
         })
-        print(self.response)
+        #print(self.response)
         return self.response
 

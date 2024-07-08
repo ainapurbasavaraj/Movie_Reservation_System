@@ -8,7 +8,6 @@ class SearchByLocationEncoder(Encoder):
         self.location_list=list()
 
     def encode(self):
-        #location=self.content.get_locations()
         location_response=self.content.get_response()
         print(f'location_response --> {location_response}')
         for location in location_response:

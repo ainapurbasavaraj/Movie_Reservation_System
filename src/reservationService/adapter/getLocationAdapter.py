@@ -9,8 +9,6 @@ class GetLocationAdapter(DbAdapter):
         db_content = SearchByLocationDbContent()
         db_encoder = SearchByLocationDbEncoder(db_content)
         db_decoder = SearchByLocationDbDecoder(db_content)
-        #self.set_encoder(SearchByLocationDbEncoder(self.get_adapter_content()))
-        #self.set_decoder(SearchByLocationDbDecoder(self.get_adapter_content()))
         super().__init__(usecase_content, db_content, db_encoder, db_decoder)
 
     def pre_execute(self, usecase_content, db_content ):

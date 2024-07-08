@@ -20,7 +20,6 @@ class SearchByTheatreEncoder(Encoder):
             available_slots_data=each_theatre_obj[2]
             price_data=each_theatre_obj[3]
             theatre_id_found=False
-            #print(f'movie_data.movieName --> {movie_data.movieName}')
             theatre.update({
                 'theatreid':theatre_data.theatreId,
                 'theatrename':theatre_data.theatreName,
@@ -39,10 +38,7 @@ class SearchByTheatreEncoder(Encoder):
             for i in range(len(Theatre)):
                 try:
                     if Theatre[i]['Movies']:
-                        # print(f'Theatre[i] --> {Theatre[i]}')
                         existing_theatre_id=Theatre[i]['theatreid']
-                        
-                        #print(f"existing_theatre_id --> {existing_theatre_id},theatre_data.theatreId --> {theatre_data.theatreId}")
                         if theatre_data.theatreId == existing_theatre_id:
                             Theatre[i]['Movies'].append(movie_dict)
                             theatre_id_found=True

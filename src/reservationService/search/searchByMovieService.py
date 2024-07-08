@@ -15,7 +15,6 @@ class SearchByMovieService:
 
 
     def execute(self, request):
-        # print(f'self.decoder.decode(request) --> {request}')
         self.decoder.decode(request)
         self.pre_execute(self.serviceContent, self.usecaseContent)
 

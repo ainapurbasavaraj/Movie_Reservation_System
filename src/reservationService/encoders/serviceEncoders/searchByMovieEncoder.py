@@ -21,7 +21,6 @@ class SearchByMovieEncoder(Encoder):
             theatre_data=each_movie_obj[1]
             available_slots_data=each_movie_obj[2]
             price_data=each_movie_obj[3]
-            #print(f'movie_data.movieName --> {movie_data.movieName}')
             movie_dict.update({
                 "movieId":movie_data.movieId,
                 "moviename":movie_data.movieName
@@ -48,10 +47,4 @@ class SearchByMovieEncoder(Encoder):
                     "theatres":theatre_list
                 })
                 movie.append(movie_dict)
-
-        # self.response.update({
-        #     "movies":movie
-        # })
-    
-        # return self.response
         return movie

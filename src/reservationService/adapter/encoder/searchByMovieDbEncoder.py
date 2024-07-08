@@ -10,14 +10,9 @@ class SearchByMovieDbEncoder(Encoder):
 
     def encode(self):
         locationid=self.get_content().get_req_locationid()
-        # locationid="1"
         sql_builder=SqlBuilder()
         build_maker=BuildMaker(sql_builder)
         sql_statement=build_maker.BuildSqlSearchByMovie(locationid)
         dbc=DbClient()
         dbc.execute(sql_statement)
         return dbc.get_result()
-
-# if __name__=="__main__":
-#     s=SearchByMovieDbEncoder(Encoder)
-#     print(s.encode())

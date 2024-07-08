@@ -3,6 +3,8 @@ from reservationService.encoders.serviceEncoders.bookMovieEncoder import BookMov
 from reservationService.decoders.serviceDecoders.bookMoiveDecoder import BookMovieDecoder
 from reservationService.usecases.usecaseContent.bookMovieUsecaseContent import BookMovieUsecaseContent
 from reservationService.usecases.bookMovieUsecase import BookMovieUsecase
+#from reservationService.data.reservationLogger import ReservationLogger
+from reservationService.Log import log
 
 
 class BookTicketService:
@@ -11,33 +13,26 @@ class BookTicketService:
         self.encoder=BookMovieEncoder(self.serviceContent)
         self.decoder=BookMovieDecoder(self.serviceContent)
         self.usecaseContent=BookMovieUsecaseContent()
+        #log=ReservationLogger.get_logger()
 
     def execute(self, request):
-        # print(f'self.decoder.decode(request) --> {request}')
+        log.info("decode request has started")
         self.decoder.decode(request)
-        
+        log.info("decode request finished")
         self.pre_execute(self.serviceContent, self.usecaseContent)
+        log.info("pre execution finished successfuly")
 
         usecase=BookMovieUsecase(self.usecaseContent)
         if usecase.run():
             self.post_execute(self.usecaseContent, self.serviceContent)
             return self.encoder.encode()
-
-        
-
-        # # retur
-        # # n 
-        # if usecase.run():
-        #     return 'user registration is successful'
-        # return 'user registration failed'
         return "FAILED"
 
     
     def pre_execute(self,serviceContent, usecaseContent):
-        #print(f'inside pre-execute --> {serviceContent.get_request()}')
+        log.info("pre execution started")
         usecaseContent.set_content(serviceContent.get_content())
 
 
     def post_execute(self,usecaseContent, serviceContent):
-        #print(f'inside the post_execute --> {usecaseContent.get_res_theatre_list()}')
         serviceContent.set_response(usecaseContent.get_res_content())

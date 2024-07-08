@@ -2,7 +2,6 @@ import psycopg2
 
 class DbClient:
     def __init__(self) -> None:
-        # self.statement=request
         self.dbName='postgres'
         self.user='postgres'
         self.password='welcome'
@@ -12,27 +11,21 @@ class DbClient:
     def get_cursor(self):
         conn=psycopg2.connect(f'dbname={self.dbName} user={self.user} password={self.password}')
         cur=conn.cursor()
-        # print(f'self.statement --> {self.statement}')
-        # cur.execute(self.statement)
-        # self.result=cur.fetchall()
         return cur,conn
 
     def execute(self,request):
         try:
-            #print(f'request inside psycopg2 --> {request}')
             self.cur.execute(request)
+            print(f'The sql statement to be executed is {request}')
         except:
             print(f'exception occured')
             self.result='FAILURE'
             return
-        # if 'update' not in request or request.find('insert')!=-1:
-        # # if request.find('insert')!=-1 or request.find('update')!=-1:
-        #     print(f'inside if condition --> {request}')
-        try:
+        if 'update' not in request and request.find('insert')==-1:
             self.result=self.cur.fetchall()
+            print(f'self.result --> {self.result}')
             return self.result
-        except:
-            pass
+            print(f'inside if condition --> {request}')
         
         self.conn.commit()
         self.result="SUCCESS"

@@ -9,10 +9,8 @@ class BookMovieEncoder(Encoder):
 
     def encode(self):
         res_content_from_db=self.get_content().get_response()
-        # movie,booking_id,status=res_content_from_db[0],res_content_from_db[1],res_content_from_db[2]
         bookingDetails=res_content_from_db[0]
         print(f'bookingDetails --> {bookingDetails}')
-        #print(f'res_content_from_db --> {res_content_from_db}')
         booking_detail=dict()
         showdetails=dict()
         show_details=bookingDetails.showDetails
@@ -25,9 +23,6 @@ class BookMovieEncoder(Encoder):
             'seatNumbers':str(seatNumbers)
         })
         price=bookingDetails.bookingAmount
-
-
-        # print(f'theatre.theatreName --> {theatre.theatreName}, theatre.availableSlots --> {theatre.availableSlots}')
         booking_detail.update({
             "status":bookingDetails.status,
             "bookingid":bookingDetails.bookingId,
@@ -39,6 +34,4 @@ class BookMovieEncoder(Encoder):
             "bookingAmount":[price.amount,price.currency]
         })
         return booking_detail
-
-        # return "SUCCESS"
 

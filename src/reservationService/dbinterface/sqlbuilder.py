@@ -51,7 +51,6 @@ class SqlBuilder(Builder):
             self.result+=f' AND {condition}'
 
     def values(self,values):
-        # print(f'args --> {values}')
         if self.result:
             self.result+=f' values{values}'
 

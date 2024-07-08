@@ -9,8 +9,6 @@ class ValidateInputParams(DbAdapter):
         self.db_content = RegisterUserDbContent()
         self.db_encoder = RegisterUserDbEncoder(self.db_content)
         self.db_decoder = RegisterUserDbDecoder(self.db_content)
-        #self.set_encoder(SearchByLocationDbEncoder(self.get_adapter_content()))
-        #self.set_decoder(SearchByLocationDbDecoder(self.get_adapter_content()))
         super().__init__(usecase_content, self.db_content, self.db_encoder, self.db_decoder)
 
     def pre_execute(self, usecase_content, db_content ):
@@ -35,8 +33,6 @@ class ValidateInputParams(DbAdapter):
             if key=='phoneNumber':
                 if ((len(val)!=13) or ('+' not in val)):
                     return failure
-            # if not isinstance(request_params.get('userid'),str):
-            #     return failure
         return success
 
     
@@ -50,8 +46,6 @@ class CheckIfUserIDIsUnique(DbAdapter):
         db_content = RegisterUserDbContent()
         db_encoder = RegisterUserDbEncoder(db_content)
         db_decoder = RegisterUserDbDecoder(db_content)
-        #self.set_encoder(SearchByLocationDbEncoder(self.get_adapter_content()))
-        #self.set_decoder(SearchByLocationDbDecoder(self.get_adapter_content()))
         super().__init__(usecase_content, db_content, db_encoder, db_decoder)
 
     def pre_execute(self, usecase_content, db_content ):
@@ -64,17 +58,6 @@ class CheckIfUserIDIsUnique(DbAdapter):
         #send and recv data to db interface
         registration_status = self.encoder.encode()
         print(f'registration_status --> {registration_status}')
-    #     print(f'list_of_movies --> {list_of_movies}')
-
-
-    #     #location.id,location.name=1,'Bengaluru'
-    #     #db_content=self.get_adapter_content()
-    #     #db_content.set_location(location)
-
-    #     decoded_movie_list_from_db=self.decoder.decode(list_of_movies) #pass response to decoder
-    #     print(f'decoded_movie_list_from_db --> {decoded_movie_list_from_db}')
-    #     self.get_adapter_content().set_db_response(decoded_movie_list_from_db)
-    #     self.post_execute(self.get_adapter_content(), self.get_usecase_content())
         return "SUCCESS" 
 
     
@@ -88,8 +71,6 @@ class RegisterUserAdapter(DbAdapter):
         db_content = RegisterUserDbContent()
         db_encoder = RegisterUserDbEncoder(db_content)
         db_decoder = RegisterUserDbDecoder(db_content)
-        #self.set_encoder(SearchByLocationDbEncoder(self.get_adapter_content()))
-        #self.set_decoder(SearchByLocationDbDecoder(self.get_adapter_content()))
         super().__init__(usecase_content, db_content, db_encoder, db_decoder)
 
     def pre_execute(self, usecase_content, db_content ):
@@ -108,4 +89,3 @@ class RegisterUserAdapter(DbAdapter):
     
     def post_execute(self, db_content, usecase_content):
         pass
-        # usecase_content.set_res_movie_list(db_content.get_db_response())

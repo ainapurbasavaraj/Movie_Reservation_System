@@ -18,11 +18,8 @@ class SearchByLocationService:
     def execute(self, request):
         self.decoder.decode(request)
         self.pre_execute(self.serviceContent, self.usecaseContent)
-
-        # usecase = searchUsecase(self.usecaseContent)
         usecase = SearchByLocationUsecase(self.usecaseContent)
         usecase.run()
-
         self.post_execute(self.usecaseContent, self.serviceContent)
         return self.encoder.encode()
 

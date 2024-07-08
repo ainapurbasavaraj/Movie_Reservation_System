@@ -3,6 +3,7 @@ from reservationService.encoders.serviceEncoders.getBookingDetailsEncoder import
 from reservationService.decoders.serviceDecoders.getBookingDetailsDecoder import GetBookingDetailsDecoder
 from reservationService.usecases.usecaseContent.getBookingDetailsContent import GetBookingDetailsUsecaseContent
 from reservationService.usecases.getBookingDetailsUsecase import GetBookingDetailsUsecase
+from reservationService.Log import log
 
 
 class GetBookingDetailService:
@@ -13,7 +14,6 @@ class GetBookingDetailService:
         self.usecaseContent=GetBookingDetailsUsecaseContent()
 
     def execute(self, request):
-        # print(f'self.decoder.decode(request) --> {request}')
         self.decoder.decode(request)
         
         self.pre_execute(self.serviceContent, self.usecaseContent)
@@ -25,6 +25,7 @@ class GetBookingDetailService:
             self.post_execute(self.usecaseContent,self.serviceContent)
             return self.encoder.encode()
         else:
+            log.error("ERROR: Get Booking Details Failed")
             return "ERROR: Get Booking Details Failed" 
 
     

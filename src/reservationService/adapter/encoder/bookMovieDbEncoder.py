@@ -16,14 +16,6 @@ class CheckSeatAvailability(Encoder):
         NumberOfSeats=req_content.get('NumberOfSeats',None)
         self.required_content.update({'showid':showid,'NumberOfSeats':NumberOfSeats})
         return self.required_content
-        # login_info=self.get_content().get_content()
-        # sql_builder=SqlBuilder()
-        # build_maker=BuildMaker(sql_builder)
-        # sql_statement=build_maker.loginUser(login_info)
-        # #print(f'sql_statement --> {sql_statement}')
-        # dbc=DbClient()
-        # dbc.execute(sql_statement)
-        # return dbc.get_result()
 
 
 class GenerateBookingIdEncoder(Encoder):

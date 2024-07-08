@@ -15,8 +15,6 @@ class updatePayment(DbAdapter):
         self.db_content = PaymentDbContent()
         self.db_encoder = PaymentDbEncoder(self.db_content)
         self.db_decoder = PaymentDbDecoder(self.db_content)
-        #self.set_encoder(SearchByLocationDbEncoder(self.get_adapter_content()))
-        #self.set_decoder(SearchByLocationDbDecoder(self.get_adapter_content()))
         super().__init__(usecase_content, self.db_content, self.db_encoder, self.db_decoder)
 
     def pre_execute(self, usecase_content, db_content ):
@@ -52,8 +50,6 @@ class GenerateTicketingID(DbAdapter):
         db_content = GenerateTicketDbContent()
         db_encoder = PaymentDbEncoder(db_content)
         db_decoder = PaymentDbDecoder(db_content)
-        #self.set_encoder(SearchByLocationDbEncoder(self.get_adapter_content()))
-        #self.set_decoder(SearchByLocationDbDecoder(self.get_adapter_content()))
         super().__init__(usecase_content, db_content, db_encoder, db_decoder)
         self.ticket=dict()
 
@@ -86,12 +82,7 @@ class GenerateTicketingID(DbAdapter):
         else:
             print('DB ERROR : Generating movie bookingid failed')
             return "FAILURE"
-
-    
-    # def post_execute(self, db_content, usecase_content):
-    #     usecase_content.set_booking_id(db_content.get_booking_id())
-        
-#         # usecase_content.set_res_movie_list(db_content.get_db_response())
+            
     def generateTicket(self):
         return str(uuid.uuid4())
 

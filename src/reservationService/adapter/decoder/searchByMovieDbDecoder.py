@@ -5,10 +5,6 @@ from reservationService.data.datamodel import ShowDetails,Theatre,Movie,Price
 class SearchByMovieDbDecoder(Decoder):
     def __init__(self, content) -> None:
         super().__init__(content)
-        # self.movie=Movie
-        # self.theatre=Theatre
-        # self.available_slots=ShowDetails
-        # self.price=Price
         self.response=[]
 
     def decode(self,request):

@@ -5,7 +5,6 @@ class BuildMaker:
 
     def __init__(self, builder) -> None:
         self.builder=builder
-    # def __init__(self) -> None:
         self.tables=[]
         self.columns=[]
         self.alias=''
@@ -17,7 +16,6 @@ class BuildMaker:
         #get the tables required for response construction
         self.common_operations('getBookingDetails')
         #query the schema and find the relevant columns and assign a alias
-        # print(self.sql_attributes)
         self.builder.select('l.locationid,l.locationname')
         self.builder.fromq('location_table l')
         return self.builder.get_query()
@@ -128,8 +126,6 @@ class BuildMaker:
         for table in self.tables:
             self.alias=''
             self.columns=[]
-            # schema=self.get_schema(table)
-            # # print(f'schema --> {schema}')
             ts=table.split('_')
             self.alias=ts[0][0]+ts[1][0]
             self.columns=self.get_columns(self.schema,table)
@@ -201,9 +197,4 @@ class BuildMaker:
         self.builder.insert('ticketing_table')
         self.builder.values((ticket_id,bookingid,ticket_url))
         return self.builder.get_query()
-
-
-# if __name__=='__main__':
-#     b=BuildMaker()
-#     b.BuildSqlSearchByTheatre("1")
 

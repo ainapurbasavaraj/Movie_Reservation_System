@@ -13,7 +13,6 @@ class paymentService:
         self.usecaseContent=PaymentUsecaseContent()
 
     def execute(self, request):
-        # print(f'self.decoder.decode(request) --> {request}')
         self.decoder.decode(request)
         
         self.pre_execute(self.serviceContent, self.usecaseContent)
@@ -26,8 +25,3 @@ class paymentService:
     
     def pre_execute(self,serviceContent, usecaseContent):
         usecaseContent.set_content(serviceContent.get_content())
-
-
-    # def post_execute(self,usecaseContent, serviceContent):
-    #     #print(f'inside the post_execute --> {usecaseContent.get_res_theatre_list()}')
-    #     serviceContent.set_response(usecaseContent.get_res_content())

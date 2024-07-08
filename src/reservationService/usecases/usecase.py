@@ -4,9 +4,6 @@ from reservationService.usecases.actions.action import UsecaseAction
 class usecase(object):
 
     def __init__(self, content) -> None:
-        #Map of actions
-        #ACTION1, SUCCESS, ACTION2
-        #ACTION1, FAILURE, ACTION3
         self.actions_map = dict()
         self.start_action = None
         self.default_action = None
@@ -18,14 +15,10 @@ class usecase(object):
 
     def set_next_action(self, action1, status, action2):
         destActionDict = self.actions_map.get(action1,None)
-        #print(f'status --> {status},self.actions_map --> {self.actions_map}')
         if destActionDict:
-            #print(f'destActionDict --> {destActionDict}')
             if destActionDict.get(status, None) is not None:
-                #print(f'status --> {status}')
                 raise Exception("Same status already registered for this action.")
             else:
-                #print(f'setting the {status} for action')
                 destActionDict[status] = action2
         else:
             self.actions_map[action1] = {status : action2}
@@ -53,7 +46,6 @@ class usecase(object):
         status = next_action.execute()
         failure='FAILURE'
         success='SUCCESS'
-        # print(f'status --> {status}')
         while(True):
             next_action = self.get_next_action(next_action, status)
             if next_action:
@@ -65,8 +57,6 @@ class usecase(object):
                     status = next_action.execute()
             else:
                 break
-            # else:
-            #     return failure
         if status==failure or status==None:
             return None
         return True

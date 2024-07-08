@@ -1,6 +1,5 @@
 
 from reservationService.content import Content
-#from reservationService.data.datamodel import Location
 
 class SearchByLocationUsecaseContent(Content):
 

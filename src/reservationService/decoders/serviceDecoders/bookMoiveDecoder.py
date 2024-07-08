@@ -9,7 +9,6 @@ class BookMovieDecoder(Decoder):
         super().__init__(content)
 
     def decode(self, request):
-        #print(f'request --> {request.get_json()}')
         rtd=RequesTokenDecoder(self.get_content())
         rtd.decode(request)
         req_json_obj=request.get_json()

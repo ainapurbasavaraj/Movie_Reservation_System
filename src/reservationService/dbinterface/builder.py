@@ -11,12 +11,6 @@ class Builder:
     def where(self):
         pass
 
-    # def innerjoin(self):
-    #     pass
-
-    # def outerjoin(self):
-    #     pass
-
     def insert(self):
         pass
 

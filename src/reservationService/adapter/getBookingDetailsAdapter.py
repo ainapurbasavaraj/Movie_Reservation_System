@@ -15,8 +15,6 @@ class GetBookingDetailsAdapter(DbAdapter):
         self.db_content = GetBookingDetailsDbContent()
         self.db_encoder = GetBookingDetailsDbEncoder(self.db_content)
         self.db_decoder = GetBookingDetailsDbDecoder(self.db_content)
-        #self.set_encoder(SearchByLocationDbEncoder(self.get_adapter_content()))
-        #self.set_decoder(SearchByLocationDbDecoder(self.get_adapter_content()))
         super().__init__(usecase_content, self.db_content, self.db_encoder, self.db_decoder)
 
     def pre_execute(self, usecase_content, db_content ):
@@ -46,5 +44,4 @@ class GetBookingDetailsAdapter(DbAdapter):
     
     def post_execute(self, db_content, usecase_content):
         usecase_content.set_res_content(db_content.get_res_content())
-        #print(f'GetBookingDetailsAdapter --> usecase_content.get_res_content() --> {usecase_content.get_res_content()}')
 

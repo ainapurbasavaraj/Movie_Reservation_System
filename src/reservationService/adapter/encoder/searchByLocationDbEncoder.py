@@ -16,7 +16,3 @@ class SearchByLocationDbEncoder(Encoder):
         dbc=DbClient()
         dbc.execute(sql_statement)
         return dbc.get_result()
-
-# if __name__=="__main__":
-#     sbl=SearchByLocationDbEncoder(Encoder)
-#     print(sbl.encode())

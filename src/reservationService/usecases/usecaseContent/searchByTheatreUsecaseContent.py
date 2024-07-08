@@ -14,7 +14,6 @@ class SearchByTheatreUsecaseContent(Content):
         return self.locationid
 
     def set_res_theatre_list(self,movie):
-        # print(f'set_res_movie_list -> movie object --> {movie}')
         self.res_movielist.extend(movie)
 
     def get_res_theatre_list(self):

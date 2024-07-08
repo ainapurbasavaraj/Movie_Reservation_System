@@ -11,14 +11,9 @@ class SearchByTheatreDbEncoder(Encoder):
     def encode(self):
         locationid=self.get_content().get_req_locationid()
         print(f'locationid ---> {locationid}')
-        # locationid="1"
         sql_builder=SqlBuilder()
         build_maker=BuildMaker(sql_builder)
         sql_statement=build_maker.BuildSqlSearchByTheatre(locationid)
         dbc=DbClient()
         dbc.execute(sql_statement)
         return dbc.get_result()
-
-# if __name__=="__main__":
-#     s=SearchByTheatreDbEncoder(Encoder)
-#     print(s.encode())
