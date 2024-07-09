@@ -16,3 +16,8 @@ ssh -i "Basavanagar-key.pem" ubuntu@ec2-18-204-203-169.compute-1.amazonaws.com
 AWS account id : 165178850723
 users : basavaraj,girish
 
+
+postgresql configurations : /opt/homebrew//var/postgresql@16/postgresql.conf
+postgresql : allow remote connections
+https://blog.devart.com/configure-postgresql-to-allow-remote-connection.html
+Adding trust : https://stackoverflow.com/questions/55038942/fatal-password-authentication-failed-for-user-postgres-postgresql-11-with-pg
